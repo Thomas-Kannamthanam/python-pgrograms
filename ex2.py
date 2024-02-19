@@ -1,6 +1,11 @@
-x=int(input("Enter the positive number:"))
-z=1
-for num in range(0,3):
-    z=(z+x/z)/2
-
-print(z)
+import math
+x=float(input("Enter a positive number: "))
+tolerance=0.000001
+estimate=1.0
+while True:
+    estimate=(estimate+x/estimate)/2
+    difference=abs(x-estimate**2)
+    if difference<=tolerance:
+        break
+print("The program's estimate: ",estimate)
+print("Python's estimate:      ",math.sqrt(x))
